@@ -5,18 +5,30 @@
  */
 package com.oreizy.everest.planner.structure;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author eoreizy
  */
 public class Timeslot {
     
-    public int timeslotId;
-    public int boardId;
+    public ArrayList<Task> tasks;
     
-    public Timeslot(int _timeslotId, int _boardId){
-        this.timeslotId = _timeslotId;
-        this.boardId = _boardId;
+    public Date date; //year, month, day
+    public String title;
+    
+    public Timeslot(Date _date, String _title){
+        this.date = _date;
+        this.title = _title;
+        this.tasks = new ArrayList<Task>();
+    }
+    
+    public Timeslot(Date _date, String _title, ArrayList<Task> _taskArr){
+        this.tasks = _taskArr;
+        this.title = _title;
+        this.date = _date;
     }
     
 }

@@ -11,16 +11,21 @@ package com.oreizy.everest.planner.structure;
  */
 public class User {
     
-    public int userId;
-    public String username;
+    //public int userId;
+    public String username; //Usernames should be noncase sensitive and always stored as lowercase
     public String email;
     public int pin;
+    public String hash;
     
-    public User(int _userId, String _username, String _email, int _pin){
-        this.userId = _userId;
-        this.username = _username;
+    public User(String _username, String _email, int _pin){
+        //this.userId = _userId;
+        this.username = _username.toLowerCase();
         this.email = _email;
         this.pin = _pin;
+    }
+    
+    public UserTX toUserTX(){
+        return new UserTX(this.username, this.email);
     }
     
 }

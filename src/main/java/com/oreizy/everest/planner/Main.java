@@ -5,7 +5,9 @@
  */
 package com.oreizy.everest.planner;
 
+import com.oreizy.everest.planner.dependencies.HTMLCompiler;
 import com.oreizy.everest.planner.dependencies.JSONRT;
+import com.oreizy.everest.planner.structure.TempData;
 import java.util.HashMap;
 import java.util.Map;
 import spark.ModelAndView;
@@ -22,17 +24,21 @@ public class Main {
         port(80);
 
         staticFiles.location("/");
+        
+        TempData.addExamples();
 
         get("/", (req, res) -> RouteHandlers.indexRequest(req, res));
 
         get("/hello", (req, res) -> RouteHandlers.sayHello("world!"));
 
-        get("/board/:id", (req, res) -> RouteHandlers.boardRequest(req, res));
+        get("/boards/:usr/:tag", (req, res) -> RouteHandlers.boardRequest(req, res));
         
-        get("/tasks/all", "application/json", (req, res) -> RouteHandlers.tasksRequest(req, res), new JSONRT());
+        get("/boards-data/:usr/:tag", (req, res) -> RouteHandlers.boardDataRequest(req, res), new JSONRT());
         
-        get("/users/all", "application/json", (req, res) -> RouteHandlers.nothing(req, res), new JSONRT());
+        get("/boards-static", (req, res) -> RouteHandlers.boardStaticRequest(req, res)); //not working right now
         
-        get("/boards/all", "application/json", (req, res) -> RouteHandlers.nothing(req, res), new JSONRT());
+        get("/users/all", "application/json", (req, res) -> TempData.users, new JSONRT());
+        
+        get("/boards-all", "application/json", (req, res) -> TempData.boards, new JSONRT());
     }
 }

@@ -5,21 +5,39 @@
  */
 package com.oreizy.everest.planner.structure;
 
+import com.oreizy.everest.planner.dependencies.EOTools;
+import java.util.ArrayList;
+
 /**
  *
  * @author eoreizy
  */
 public class Board {
     
-    public int boardId;
+    //public int boardId;
     public String title;
-    public int userId;
+    //public int userId;
     public String titleBarColor;
+    public ArrayList<Timeslot> timeslots;
+    public UserTX owner;
+    public String tag;
     
-    public Board(int _boardId, String _title, int _userId){
-        this.boardId = _boardId;
+    public Board(String _title, UserTX _owner){
+        //this.boardId = _boardId;
         this.title = _title;
-        this.userId = _userId;
+        //this.userId = _userId;
+        this.timeslots = new ArrayList<Timeslot>();
+        this.owner = _owner;
+        this.tag = EOTools.nameToTag(_title);
+    }
+    
+    public Board(String _title, UserTX _owner, ArrayList<Timeslot> _timeslotArr){
+        //this.boardId = _boardId;
+        this.title = _title;
+        //this.userId = _userId;
+        this.timeslots = _timeslotArr;
+        this.owner = _owner;
+        this.tag = EOTools.nameToTag(_title);
     }
     
 }

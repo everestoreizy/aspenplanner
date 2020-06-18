@@ -5,9 +5,8 @@
  */
 package com.oreizy.everest.planner;
 
-import com.oreizy.everest.planner.structure.Task;
-import com.oreizy.everest.planner.structure.TempData;
-import com.oreizy.everest.planner.structure.Timeslot;
+import com.oreizy.everest.planner.dependencies.HTMLCompiler;
+import com.oreizy.everest.planner.structure.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,8 +27,8 @@ public class RouteHandlers {
         return modelToEngine(model, "index.html");
     }
     
-    static String staticBoardRequest(spark.Request req, spark.Response res){
-        String boardId = req.params(":id");
+    static String boardStaticRequest(spark.Request req, spark.Response res){
+        String boardId = "7";
 
         //would get stuff from db instead of static arrays
         String[] listNames = new String[]{
@@ -65,28 +64,28 @@ public class RouteHandlers {
             model.put("Item_Text_" + i, listItems[i]);
         }
 
-        return modelToEngine(model, "board.html");
+        return modelToEngine(model, "board_static.html");
     }
     
     static String boardRequest(spark.Request req, spark.Response res){
-        int boardId = Integer.parseInt(req.params(":id"));
+        Board b = boardDataRequest(req, res);
         
-        ArrayList<Timeslot> timeslots = new ArrayList<Timeslot>(TempData.timeslots);
-        for (Timeslot t : timeslots){
-            if (t.boardId != boardId){
-                timeslots.remove(t);
-            }
-        }
+        HTMLCompiler bc = new HTMLCompiler(b);
         
-        //more stuff
-        return "still working on this";
+        return bc.compile();
         
     }
     
-    static ArrayList<Task> tasksRequest(spark.Request req, spark.Response res){
+    static Board boardDataRequest(Request req, Response res) {
+        String user = req.params(":usr");
+        String tag = req.params(":tag");
         
-        return TempData.tasks;
-        
+        for(Board b : TempData.boards){
+            if(b.owner.username.equals(user) && b.tag.equals(tag)){
+                return b;
+            }
+        }
+        return null;
     }
     
     static String sayHello(String what){
@@ -100,5 +99,7 @@ public class RouteHandlers {
     static String nothing(spark.Request req, spark.Response res) {
         return "nothing";
     }
+
+    
     
 }

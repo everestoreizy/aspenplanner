@@ -10,15 +10,15 @@ package com.oreizy.everest.planner.structure;
  * @author eoreizy
  */
 public class Task {
-    public int taskId;
+    //public int taskId;
     public String title;
-    public int timeslotId;
+    //public int timeslotId;
     public boolean isComplete;
     
-    public Task(int _taskId, String _title, int _timeslotId){
-        this.taskId = _taskId;
+    public Task(String _title){
+        //this.taskId = _taskId;
         this.title = _title;
-        this.timeslotId = _timeslotId;
+        //this.timeslotId = _timeslotId;
         this.isComplete = false;
     }
     
