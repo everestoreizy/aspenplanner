@@ -5,7 +5,7 @@
  */
 package com.oreizy.everest.planner;
 
-import com.oreizy.everest.planner.dependencies.HTMLCompiler;
+import com.oreizy.everest.planner.dependencies.HTMLRender;
 import com.oreizy.everest.planner.structure.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,15 +64,15 @@ public class RouteHandlers {
             model.put("Item_Text_" + i, listItems[i]);
         }
 
-        return modelToEngine(model, "board_static.html");
+        return modelToEngine(model, "board_html/board_static.html");
     }
     
     static String boardRequest(spark.Request req, spark.Response res){
         Board b = boardDataRequest(req, res);
         
-        HTMLCompiler bc = new HTMLCompiler(b);
+        HTMLRender html = new HTMLRender(b);
         
-        return bc.compile();
+        return html.render();
         
     }
     
