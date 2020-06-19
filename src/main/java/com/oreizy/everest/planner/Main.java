@@ -44,8 +44,9 @@ public class Main {
         
         get("/boards/:usr/:tag/fn/task-compl", (req, res) -> RouteHandlers.bfnCompleteTask(req, res));
         
+        put("/boards/:usr/:tag/fn/task-add", (req, res) -> RouteHandlers.bfnAddTask(req, res));
         
-        //get("/images/:img", (req, res) -> RouteHandlers.imageRequest(req, res));
+        get("/boards/:usr/:tag/fn/task-rm", (req, res) -> RouteHandlers.bfnRemoveTask(req, res));
         
     }
 }

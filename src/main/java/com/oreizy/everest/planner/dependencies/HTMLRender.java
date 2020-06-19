@@ -63,6 +63,7 @@ public class HTMLRender {
             Map<String, Object> timeslotMap = new HashMap<>();
             timeslotMap.put("List_Title", ts.title);
             timeslotMap.put("List_Content", tasksHTML);
+            timeslotMap.put("Timeslot_Id", data.timeslots.indexOf(ts));
             boardHTML += modelToEngine(timeslotMap, "board_html/list.html");
         }
         

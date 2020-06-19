@@ -109,5 +109,30 @@ public class RouteHandlers {
     static String imageRequest(Request req, Response res) {
         return "/src/main/resources/images/" + req.params(":img");
     }
+
+    static String bfnAddTask(Request req, Response res) {
+        String owner = req.params(":usr");
+        String tag = req.params(":tag");
+        int timeslotId = Integer.parseInt(req.queryParams("ts"));
+        String content = req.body();
+        
+        System.out.println("Task content is " + content);
+        
+        TempData.addTask(owner, tag, timeslotId, content);
+        
+        return "done";
+        
+    }
+
+    static String bfnRemoveTask(Request req, Response res) {
+        String username = req.params(":usr");
+        String boardTag = req.params(":tag");
+        int timeslotId = Integer.parseInt(req.queryParams("ts"));
+        int taskId = Integer.parseInt(req.queryParams("id"));
+        
+        TempData.removeTask(username, boardTag, timeslotId, taskId);
+        
+        return "done";
+    }
     
 }
