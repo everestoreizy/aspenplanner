@@ -40,5 +40,12 @@ public class Main {
         get("/users/all", "application/json", (req, res) -> TempData.users, new JSONRT());
         
         get("/boards-all", "application/json", (req, res) -> TempData.boards, new JSONRT());
+        
+        
+        get("/boards/:usr/:tag/fn/task-compl", (req, res) -> RouteHandlers.bfnCompleteTask(req, res));
+        
+        
+        //get("/images/:img", (req, res) -> RouteHandlers.imageRequest(req, res));
+        
     }
 }

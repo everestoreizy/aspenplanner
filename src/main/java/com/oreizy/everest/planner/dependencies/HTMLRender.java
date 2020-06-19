@@ -41,6 +41,7 @@ public class HTMLRender {
         
         System.out.println("Rendering board " + data.owner.username + "/" + data.tag);
         
+        
         for(Timeslot ts : data.timeslots){
             
             String tasksHTML = "";
@@ -49,6 +50,10 @@ public class HTMLRender {
                 
                 Map<String, Object> taskMap = new HashMap<>();
                 taskMap.put("Item_Content", ta.title);
+                taskMap.put("Image_Src", (ta.isComplete ? "filled" : "unfilled"));
+                taskMap.put("Image_Alt", (ta.isComplete ? "complete" : "incomplete"));
+                taskMap.put("Timeslot_Id", data.timeslots.indexOf(ts));
+                taskMap.put("Item_Id", ts.tasks.indexOf(ta));
                 
                 
                 tasksHTML += modelToEngine(taskMap, "board_html/item.html");

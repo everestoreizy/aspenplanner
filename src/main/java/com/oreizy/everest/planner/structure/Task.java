@@ -22,4 +22,8 @@ public class Task {
         this.isComplete = false;
     }
     
+    public void toggleCompletion(){
+        isComplete = !isComplete;
+    }
+    
 }

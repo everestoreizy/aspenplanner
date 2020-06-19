@@ -39,7 +39,7 @@ public class TempData {
         
         Timeslot ts3 = new Timeslot(new Date(2020, 6, 19), "Summer day 2 after dinner");
         
-        ts3.tasks.add(new Task("Snuggle with mom"));
+        ts3.tasks.add(new Task("Bake a cake"));
         ts3.tasks.add(new Task("Read a book"));
         ts3.tasks.add(new Task("Make a yummy dessert for the family"));
         
@@ -54,6 +54,23 @@ public class TempData {
         
         users.add(tu);
         
+    }
+    
+    public static Board findBoard(String username, String tag){
+        for(Board b : TempData.boards){
+            if(b.owner.username.equals(username) && b.tag.equals(tag)){
+                return b;
+            }
+        }
+        return null;
+    }
+    
+    public static Timeslot findTimeslot(String username, String tag, int timeslotId){
+        return findBoard(username, tag).timeslots.get(timeslotId);
+    }
+    
+    public static Task findTask(String username, String tag, int timeslotId, int taskId){
+        return findTimeslot(username, tag, timeslotId).tasks.get(taskId);
     }
     
 }
