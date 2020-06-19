@@ -21,7 +21,7 @@ import spark.template.freemarker.FreeMarkerEngine;
 public class Main {
 
     public static void main(String[] args) {
-        port(80);
+        port(8080);
 
         staticFiles.location("/");
         
