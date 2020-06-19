@@ -49,27 +49,21 @@ body {
     padding: 0;
 }
 
-#body{
+#lists-body{
     padding: 10px;
     white-space: nowrap;
     overflow-x: scroll;
     overflow-y: hidden;
     background-color: #827397;
-    
-    display: flex;
-    flex-flow: column;
 }
 
-#body-content{
+#lists-body-content{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: flex-start;
     align-items: stretch;
-    
-    /*height: 100%;*/
-    flex-grow: 1;
 }
 
 .list {
@@ -79,9 +73,6 @@ body {
     background-color: white;
     border-radius: 20px;
     margin: 10px;
-    
-/*    min-width: 250px;
-    max-width: 300px;*/
 
     width: 250px;
     max-width: 300px;
