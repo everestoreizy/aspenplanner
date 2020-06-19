@@ -1,5 +1,6 @@
 body {
     font-family: sans-serif;
+    height: 100%;
 }
 
 #header {
@@ -54,19 +55,37 @@ body {
     overflow-x: scroll;
     overflow-y: hidden;
     background-color: #827397;
+    
+    display: flex;
+    flex-flow: column;
+}
+
+#body-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: stretch;
+    
+    /*height: 100%;*/
+    flex-grow: 1;
 }
 
 .list {
     border-style: solid;
     border-color: gray;
     border-width: 1px;
-    min-width: 250px;
-    width: 20%;
-    display: inline-block;
     background-color: white;
     border-radius: 20px;
-    vertical-align: top;
     margin: 10px;
+    
+/*    min-width: 250px;
+    max-width: 300px;*/
+
+    width: 250px;
+    max-width: 300px;
+    flex-grow: 1;
 }
 
 .list-content {

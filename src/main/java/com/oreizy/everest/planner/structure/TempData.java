@@ -46,7 +46,7 @@ public class TempData {
         ArrayList<Timeslot> tsx = new ArrayList<Timeslot>();
         tsx.add(ts1);
         tsx.add(ts2);
-        //tsx.add(ts3);
+        tsx.add(ts3);
         
         boards.add(new Board("General tasks", tu.toUserTX(), tsx));
         
