@@ -16,36 +16,38 @@ import spark.template.freemarker.FreeMarkerEngine;
  *
  * @author eoreizy
  */
-public class HTMLCompiler {
+public class HTMLRender {
     
     Object data;
     
-    public HTMLCompiler(Object _data){
+    public HTMLRender(Object _data){
         this.data = _data;
     }
     
-    public String compile(){
+    public String render(){
         String cx = this.data.getClass().getName();
         System.out.println("I figured out that this data was of class " + cx);
         
         switch(cx){
-                case "com.oreizy.everest.planner.structure.Board":   return compileBoard( (Board) data );
-                case "com.oreizy.everest.planner.structure.User":    return compileUser( (User) data);
+                case "com.oreizy.everest.planner.structure.Board":   return renderBoard( (Board) data );
+                case "com.oreizy.everest.planner.structure.User":    return renderUser( (User) data);
                 default:   return null;
         }
     }
     
-    private String compileBoard(Board data){
+    private String renderBoard(Board data){
         Map<String, Object> map = new HashMap<>();
         
         map.put("Board_Data", new String("STUFF")); //put MY rendered HTML in there
         map.put("Board_Title", data.title);
+        map.put("Username", data.owner.username);
+        map.put("Board_Tag", data.tag);
         
         return modelToEngine(map, "board.html"); //template for 'outside' of page with header, footer, etc.
         
     }
     
-    private String compileUser(User data){
+    private String renderUser(User data){
         return "well at least it's a User";
     }
     

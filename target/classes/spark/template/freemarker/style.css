@@ -11,7 +11,36 @@ body {
 }
 
 #header-content {
-    padding-left: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#board-title {
+    padding: 0;
+    margin: 0;
+}
+.header-spacer {
+    /*display: inline-block;*/
+    width: 5%;
+}
+
+.header-item {
+    /*display: inline-block;*/
+    padding: 0px;
+    margin: 0px;
+    line-height: 60px;
+}
+
+.right {
+    float: right;
+}
+
+#username {
+    /*font-weight: 900;*/
+    /*border: 1px solid #000;*/
 }
 
 .fit {

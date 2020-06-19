@@ -5,7 +5,7 @@
  */
 package com.oreizy.everest.planner;
 
-import com.oreizy.everest.planner.dependencies.HTMLCompiler;
+import com.oreizy.everest.planner.dependencies.HTMLRender;
 import com.oreizy.everest.planner.structure.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,9 +70,9 @@ public class RouteHandlers {
     static String boardRequest(spark.Request req, spark.Response res){
         Board b = boardDataRequest(req, res);
         
-        HTMLCompiler bc = new HTMLCompiler(b);
+        HTMLRender html = new HTMLRender(b);
         
-        return bc.compile();
+        return html.render();
         
     }
     
