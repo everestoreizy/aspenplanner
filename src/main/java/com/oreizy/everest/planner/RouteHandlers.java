@@ -80,26 +80,34 @@ public class RouteHandlers {
         String user = req.params(":usr");
         String tag = req.params(":tag");
         
-        for(Board b : TempData.boards){
-            if(b.owner.username.equals(user) && b.tag.equals(tag)){
-                return b;
-            }
-        }
-        return null;
+        return TempData.findBoard(user, tag); 
     }
     
     static String sayHello(String what){
         return "Hello, " + what;
     }
     
+    
+
+
+    static String bfnCompleteTask(Request req, Response res) {
+        String username = req.params(":usr");
+        String boardTag = req.params(":tag");
+        int timeslotId = Integer.parseInt(req.queryParams("ts"));
+        int taskId = Integer.parseInt(req.queryParams("id"));
+        
+        TempData.findTask(username, boardTag, timeslotId, taskId).toggleCompletion();
+        
+        return "done";
+        
+    }
+
     static String modelToEngine(Map<String, Object> model, String template){
         return new FreeMarkerEngine().render(new ModelAndView(model, template));
     }
 
-    static String nothing(spark.Request req, spark.Response res) {
-        return "nothing";
+    static String imageRequest(Request req, Response res) {
+        return "/src/main/resources/images/" + req.params(":img");
     }
-
-    
     
 }
