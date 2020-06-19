@@ -5,7 +5,6 @@
  */
 package com.oreizy.everest.planner.structure;
 
-import com.oreizy.everest.planner.dependencies.EOTools;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +27,7 @@ public class Board {
         //this.userId = _userId;
         this.timeslots = new ArrayList<Timeslot>();
         this.owner = _owner;
-        this.tag = EOTools.nameToTag(_title);
+        this.tag = nameToTag(_title);
     }
     
     public Board(String _title, UserTX _owner, ArrayList<Timeslot> _timeslotArr){
@@ -37,7 +36,13 @@ public class Board {
         //this.userId = _userId;
         this.timeslots = _timeslotArr;
         this.owner = _owner;
-        this.tag = EOTools.nameToTag(_title);
+        this.tag = nameToTag(_title);
+    }
+    
+    private static String nameToTag(String name){
+        return name.toLowerCase()
+                .replaceAll(" ", "-")
+                .replaceAll("[^a-zA-Z0-9-]", "_");
     }
     
 }
