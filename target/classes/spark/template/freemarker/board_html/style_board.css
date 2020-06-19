@@ -81,24 +81,30 @@ body {
 
 .list-content {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .list-title {
     margin-top: 0px;
     font-size: 1.7em;
+    white-space: initial;
 }
 
-.item {
+.task {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-item {
     border-radius: 20px;
     border-style: solid;
     border-color: gray;
     border-width: 1px;
-    padding: 20px;
+    padding: 10px;
     margin-top: 10px;
     white-space: normal;
-    
-    display: flex;
-    justify-content: space-between;
 }
 
 .checkbox {
@@ -111,4 +117,23 @@ body {
 
 .item-content-item {
     
+}
+
+.list-buttons-container {
+    
+    padding: 5px;
+    
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.list-add-task-btn {
+    height: 30px;
+    width: 30px;
+}
+
+.list-remove-task-btn {
+    height: 30px;
+    width: 30px;
+    transform: rotate(45deg);
 }
