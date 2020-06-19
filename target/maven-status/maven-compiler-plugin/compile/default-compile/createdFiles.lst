@@ -1,1 +1,10 @@
+com\oreizy\everest\planner\structure\Board.class
+com\oreizy\everest\planner\dependencies\JSONRT.class
+com\oreizy\everest\planner\structure\TempData.class
 com\oreizy\everest\planner\Main.class
+com\oreizy\everest\planner\structure\User.class
+com\oreizy\everest\planner\structure\Timeslot.class
+com\oreizy\everest\planner\RouteHandlers.class
+com\oreizy\everest\planner\structure\Task.class
+com\oreizy\everest\planner\dependencies\HTMLRender.class
+com\oreizy\everest\planner\structure\UserTX.class

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html class="fit">
+    <head>
+        <title>${Board_Id} - ${Board_Title} - Planner</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/spark/template/freemarker/board_html/style_board.css"><!---For when I run the webserver--->
+        <link rel="stylesheet" type="text/css" href="style_board.css"> <!---For when I just load the html--->
+    </head>
+    <body class="fit">
+        <div id="header"><div id="header-content">
+                <h1 class='header-item'>${Board_Title}</h1> 
+            <div class='header-item' id="username">random-person/my-awesome-board</div>
+            <div class='header-item right'> Planner by Everest Oreizy</div>
+        </div></div>
+        <div id="lists-body">
+            <div id="lists-body-content">
+                <div class="list"><div class="list-content">
+                    <h4 class="list-title">${List_Title_1}</h4>
+                    <div class="item">${Item_Text_1}</div>
+                    <div class="item">Item text 2</div>
+                    <div class="item">Item text 3</div>
+                    <div class="item">Item text 4</div>
+                    <div class="item">Item text 4</div>
+                    <div class="item">Item text 4</div>
+                </div></div>
+                <div class="list"><div class="list-content">
+                    <h4 class="list-title">${List_Title_2}</h4>
+                    <div class="item">${Item_Text_1}</div>
+                    <div class="item">${Item_Text_2}</div>
+                    <div class="item">${Item_Text_3}</div>
+                    <div class="item">A really long string....oh yeah this one might break the site</div>
+                    <div class="item">${Item_Text_4}</div>
+                    <div class="item">${Item_Text_0}</div>
+                </div></div>
+                <div class="list"><div class="list-content">
+                    <h4 class="list-title">${List_Title_3}</h4>
+                    <div class="item">${Item_Text_0}</div>
+                    <div class="item">${Item_Text_1}</div>
+                    <div class="item">${Item_Text_2}</div>
+                    <div class="item">${Item_Text_3}</div>
+                    <div class="item">${Item_Text_4}</div>
+                </div></div>
+                <div class="list"><div class="list-content">
+                    <h4 class="list-title">${List_Title_4}</h4>
+                    <div class="item">${Item_Text_1}</div>
+                    <div class="item">Item text 2</div>
+                    <div class="item">Item text 3</div>
+                    <div class="item">Item text 4</div>
+                    <div class="item">Item text 0</div>
+                </div></div>
+                <div class="list"><div class="list-content">
+                    <h4 class="list-title">${List_Title_0}</h4>
+                    <div class="item">${Item_Text_0}</div>
+                    <div class="item">${Item_Text_1}</div>
+                    <div class="item">${Item_Text_2}</div>
+                    <div class="item">${Item_Text_3}</div>
+                    <div class="item">${Item_Text_4}</div>
+                </div></div>
+            </div>
+        </div>
+    </body>
+</html>

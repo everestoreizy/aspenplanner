@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html class="fit">
+    <head>
+        <title>${Board_Title} - Planner</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/spark/template/freemarker/board_html/style_board.css"><!---For when I run the webserver--->
+        <link rel="stylesheet" type="text/css" href="style_board.css"> <!---For when I just load the html--->
+    </head>
+    <body class="fit">
+        <div id="header"><div id="header-content">
+            <h1 class="header-item" id='board-title'>${Board_Title}</h1>
+            <span class='header-item' id='username'>${Username}/${Board_Tag}</span><!-- Do not delete this! It is relied upon by script_board.js-->
+            <span class='header-item right'> Planner by Everest Oreizy</span>
+        </div></div>
+        <div id="lists-body">
+            <div id="lists-body-content">
+                ${Board_Data}
+            </div>
+        </div>
+    </body>
+    <script src="/scripts/common.js"></script>
+    <script src="/scripts/script_board.js"></script>
+</html>
