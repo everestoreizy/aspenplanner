@@ -64,7 +64,7 @@ public class RouteHandlers {
             model.put("Item_Text_" + i, listItems[i]);
         }
 
-        return modelToEngine(model, "board_static.html");
+        return modelToEngine(model, "board_html/board_static.html");
     }
     
     static String boardRequest(spark.Request req, spark.Response res){

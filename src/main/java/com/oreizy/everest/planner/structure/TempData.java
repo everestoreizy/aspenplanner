@@ -37,9 +37,16 @@ public class TempData {
         ts2.tasks.add(new Task("Listen to music"));
         ts2.tasks.add(new Task("Connect bluetooth devices"));
         
+        Timeslot ts3 = new Timeslot(new Date(2020, 6, 19), "Summer day 2 after dinner");
+        
+        ts3.tasks.add(new Task("Snuggle with mom"));
+        ts3.tasks.add(new Task("Read a book"));
+        ts3.tasks.add(new Task("Make a yummy dessert for the family"));
+        
         ArrayList<Timeslot> tsx = new ArrayList<Timeslot>();
         tsx.add(ts1);
         tsx.add(ts2);
+        //tsx.add(ts3);
         
         boards.add(new Board("General tasks", tu.toUserTX(), tsx));
         

@@ -6,6 +6,8 @@
 package com.oreizy.everest.planner.dependencies;
 
 import com.oreizy.everest.planner.structure.Board;
+import com.oreizy.everest.planner.structure.Task;
+import com.oreizy.everest.planner.structure.Timeslot;
 import com.oreizy.everest.planner.structure.User;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +28,6 @@ public class HTMLRender {
     
     public String render(){
         String cx = this.data.getClass().getName();
-        System.out.println("I figured out that this data was of class " + cx);
         
         switch(cx){
                 case "com.oreizy.everest.planner.structure.Board":   return renderBoard( (Board) data );
@@ -36,14 +37,39 @@ public class HTMLRender {
     }
     
     private String renderBoard(Board data){
-        Map<String, Object> map = new HashMap<>();
+        String boardHTML = "";
         
-        map.put("Board_Data", new String("STUFF")); //put MY rendered HTML in there
+        System.out.println("Rendering board " + data.owner.username + "/" + data.tag);
+        
+        for(Timeslot ts : data.timeslots){
+            
+            String tasksHTML = "";
+            
+            for(Task ta : ts.tasks){
+                
+                Map<String, Object> taskMap = new HashMap<>();
+                taskMap.put("Item_Content", ta.title);
+                
+                
+                tasksHTML += modelToEngine(taskMap, "board_html/item.html");
+                
+            }
+            
+            Map<String, Object> timeslotMap = new HashMap<>();
+            timeslotMap.put("List_Title", ts.title);
+            timeslotMap.put("List_Content", tasksHTML);
+            boardHTML += modelToEngine(timeslotMap, "board_html/list.html");
+        }
+        
+        
+        Map<String, Object> map = new HashMap<>();
+        map.put("Board_Data", boardHTML);
         map.put("Board_Title", data.title);
         map.put("Username", data.owner.username);
         map.put("Board_Tag", data.tag);
         
-        return modelToEngine(map, "board.html"); //template for 'outside' of page with header, footer, etc.
+        
+        return modelToEngine(map, "board_html/board.html");
         
     }
     
@@ -54,5 +80,7 @@ public class HTMLRender {
     static String modelToEngine(Map<String, Object> model, String template){
         return new FreeMarkerEngine().render(new ModelAndView(model, template));
     }
+    
+    
     
 }
