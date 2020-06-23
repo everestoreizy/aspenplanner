@@ -1,1 +1,0 @@
-curl -v -X POST -su "everest@oreizy.com" --data-binary @"target/Planner-0.1-ALPHA.jar" https://aspenplanner.scm.azurewebsites.net/api/wardeploy
