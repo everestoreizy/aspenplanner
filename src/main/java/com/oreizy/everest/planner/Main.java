@@ -5,14 +5,9 @@
  */
 package com.oreizy.everest.planner;
 
-import com.oreizy.everest.planner.dependencies.HTMLRender;
 import com.oreizy.everest.planner.dependencies.JSONRT;
 import com.oreizy.everest.planner.structure.TempData;
-import java.util.HashMap;
-import java.util.Map;
-import spark.ModelAndView;
 import static spark.Spark.*;
-import spark.template.freemarker.FreeMarkerEngine;
 
 /**
  *
